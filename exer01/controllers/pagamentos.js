@@ -7,6 +7,27 @@ module.exports = function(app) {
         res.send('Você em pagamentos');
     });
 
+    app.put('/pagamentos/pagamento/:id', function(req, res) {
+        var id = req.params.id;
+
+        var pagamento = {
+            'id' : id,
+            'status' : 'confirmed'
+        };
+
+        var connection = app.persistencia.connectionFactory();
+        var pagamentoDao = new app.persistencia.pagamentoDao(connection);
+
+        pagamentoDao.atualiza(pagamento, function(erro){
+            if (erro){
+              res.status(500).send(erro);
+              return;
+            }
+            console.log('pagamento atualiza');
+            res.send(pagamento);
+        });
+    });
+
     app.post('/pagamentos/pagamento', function(req, res) {
         var pagamento = req.body;
 
