@@ -58,9 +58,25 @@ module.exports = function(app) {
                 
                 pagamento.id = result.insertId;
 
+                var response = {
+                    pagamento,
+                    'links' : [
+                        {
+                            href: `http://localhost:3000/pagamentos/pagamento/${ pagamento.id }`,
+                            rel: 'confirmed',
+                            method: 'PUT',
+                        },
+                        {
+                            href: `http://localhost:3000/pagamentos/pagamento/${ pagamento.id }`,
+                            rel: 'cancelled',
+                            method: 'DELETE',
+                        }
+                    ]
+                }
+
                 res.status(201)
-                   .location(`/pagamentos/pagamento/${result.insertId}`)
-                   .json(pagamento);
+                   .location(`/pagamentos/pagamento/${ pagamento.id }`)
+                   .json(response);
             }
         });
     });
