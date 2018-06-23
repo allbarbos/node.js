@@ -64,4 +64,25 @@ module.exports = function(app) {
             }
         });
     });
+
+    app.delete('/pagamentos/pagamento/:id', function(req, res) {
+        var id = req.params.id;
+
+        var pagamento = {
+            'id' : id,
+            'status' : 'cancelled'
+        };
+
+        var connection = app.persistencia.connectionFactory();
+        var pagamentoDao = new app.persistencia.pagamentoDao(connection);
+
+        pagamentoDao.atualiza(pagamento, function(erro){
+            if (erro){
+              res.status(500).send(erro);
+              return;
+            }
+            console.log('pagamento cancelado');
+            res.status(204).send(pagamento);
+        });
+    });
 }
