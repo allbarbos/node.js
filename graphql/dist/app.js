@@ -1,1 +1,2 @@
-console.log("bile " + 123);
+console.log(`bile ${123}`);
+let a = 'Hello';
