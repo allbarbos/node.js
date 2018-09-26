@@ -1,15 +1,16 @@
 {
-  "name": "udemy",
+  "name": "nodecompleto",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "server": "supervisor -e js -i 'node_modules' app.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.14.0",
-    "ejs": "2.5.1"
+    "ejs": "2.5.1",
+    "express": "4.14.0",
+    "mysql": "2.11.1"
   }
 }

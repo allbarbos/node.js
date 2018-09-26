@@ -1,12 +1,9 @@
-version: "3.1"
+version: '3'
 services:
-  nodejs:
-    container_name: completo
-    build:
-      context: ./
-      dockerfile: Dockerfile
-    volumes:
-      - ./src:/work
+  web:
+    build: .
     ports:
-      - "3000:3000"
-    command: "node app.js"
+     - "3000:3000"
+    volumes:
+     - ./src:/work
+    command: sh -c 'npm install && npm run server'
