@@ -7,5 +7,9 @@ module.exports = function() {
         cnx.query('select * from noticias', callback);
     };
 
+    this.salvarNoticia = function(noticia, cnx, callback) {
+        cnx.query('insert into noticias set ?', noticia, callback);
+    };
+
     return this;
 }
