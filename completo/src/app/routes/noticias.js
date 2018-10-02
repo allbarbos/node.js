@@ -1,8 +1,9 @@
-module.exports = function(app) {
-    app.get('/noticias', function (req, res) {
-        const cnx = app.config.dbConnection();
+module.exports = function(application) {
+    application.get('/noticias', function (req, res) {
+        const cnx = application.config.dbConnection();
+        var model = application.app.models.noticiasModel;
 
-        cnx.query('select * from noticias', function(err, result){
+        model.getNoticias(cnx, function(err, result) {
             res.render('noticias/noticias', { noticias: result });
         });
     });
