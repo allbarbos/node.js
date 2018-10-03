@@ -10,9 +10,11 @@ NoticiaDAO.prototype.getNoticias = function(callback) {
     this._cnx.query('select * from noticias', callback);
 };
 
+NoticiaDAO.prototype.getNewsByLimit = function(limit, callback) {    
+    this._cnx.query(`select * from noticias order by data_criacao desc limit ${limit}`, callback);
+};
 
 NoticiaDAO.prototype.salvarNoticia = function(noticia, callback) {
-    console.log(noticia);
     this._cnx.query('insert into noticias set ?', noticia, callback);
 };
 
