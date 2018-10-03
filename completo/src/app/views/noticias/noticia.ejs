@@ -43,21 +43,23 @@
 
 
 	    <div class="container">
-	    	<div class="row">
-	    		<div class="col-md-12">
-	    			<div class="noticia_wrapper">
-		    			<span class="noticia_autor"><%= noticias[i].autor %></span>
-						<a href="noticia/<%= noticia[0].id_noticia %>" class="noticia_titulo">
-							<%= noticia[0].titulo %>
-						</a>
-		    			<span class="noticia_data"><%= noticias[i].data_noticia %></span>
-		    			<br />
-		    			<p class="noticia_resumo">
-							<%= noticia[0].noticia %>
-		    			</p>
-		    		</div>
-		    	</div>
-	    	</div>
+			<% if(noticia) { %>
+				<div class="row">
+					<div class="col-md-12">
+						<div class="noticia_wrapper">
+							<span class="noticia_autor"><%= noticia[0].autor %></span>
+							<a href="noticia/<%= noticia[0].id_noticia %>" class="noticia_titulo">
+								<%= noticia[0].titulo %>
+							</a>
+							<span class="noticia_data"><%= noticia[0].data_noticia %></span>
+							<br />
+							<p class="noticia_resumo">
+								<%= noticia[0].noticia %>
+							</p>
+						</div>
+					</div>
+				</div>
+			<% } %>
 	    </div>
 	
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
