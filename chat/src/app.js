@@ -5,6 +5,9 @@ const server = app.listen(3000, function() {
 });
 
 const io = require('socket.io').listen(server);
+
+app.set('io', io);
+
 io.on('connection', function(socket){
   console.log('connection');
 
