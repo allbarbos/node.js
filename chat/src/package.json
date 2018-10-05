@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "server": "supervisor -e js -i 'node_modules' app.js"
   },
   "author": "",
   "license": "ISC",
