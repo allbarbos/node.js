@@ -52,3 +52,20 @@
     
     - idade <= 30
         db.<nome_collection>.find({ idade: {$lte: 30} }).pretty()
+
+| Operador SQL | Operador | Nome                  |
+|--------------|----------|-----------------------|
+| AND          | $and     | And                   |
+| OR           | $or      | Or                    |
+
+    - sexo = 'f' AND idade > 30
+        db.<nome_collection>.find({ sexo:{$eq: 'F'}, idade:{$gt: 30} }).pretty()
+    
+    - nome = 'allan' OR nome = 'bile'
+        db.<nome_collection>.find(
+            {
+                $or:[
+                    { nome: {$eq: 'allan'}},
+                    { nome: {$eq: 'bile'}}
+                ]
+            })
