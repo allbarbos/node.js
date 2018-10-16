@@ -35,14 +35,14 @@
         db.<nome_collection>.find().pretty()
 
 ## Operators
-    | Operador SQL | Operador | Nome                  | Operação           |
-    |--------------|----------|-----------------------|--------------------|
-    | =            | $eq      | Equals                | É igual a          |
-    | >            | $gt      | Greater Than          | É maior que        |
-    | >=           | $gte     | Greater Than or Equal | É maior ou igual a |
-    | <            | $lt      | Less Than             | É menor que        |
-    | <=           | $lte     | Less Than or equal    | É menor ou igual a |
-    | != / <>      | $ne      | Not Equal             | É diferente de     |
+| Operador SQL | Operador | Nome                  | Operação           |
+|--------------|----------|-----------------------|--------------------|
+| =            | $eq      | Equals                | É igual a          |
+| >            | $gt      | Greater Than          | É maior que        |
+| >=           | $gte     | Greater Than or Equal | É maior ou igual a |
+| <            | $lt      | Less Than             | É menor que        |
+| <=           | $lte     | Less Than or equal    | É menor ou igual a |
+| != / <>      | $ne      | Not Equal             | É diferente de     |
 
     - nome = 'allan'
         db.<nome_collection>.find({ nome: {$eq: "allan"} }).pretty()
