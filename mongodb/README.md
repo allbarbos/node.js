@@ -34,6 +34,13 @@
         db.<nome_collection>.find()
         db.<nome_collection>.find().pretty()
 
+    - Atualuzar documento
+        db.<nome_collection>.update(
+            {<condições>},
+            {$set: {<valores_que_serão_atualizados>}},
+            {multi:false} // Se false, atualiza apenas o primeiro documento que encontrar conforme a condição --- Se true, atualiza todos documentos de acordo com a condição
+        )
+
 ## Operators
 | Operador SQL | Operador | Nome                  | Operação           |
 |--------------|----------|-----------------------|--------------------|
@@ -59,13 +66,17 @@
 | OR           | $or      | Or                    |
 
     - sexo = 'f' AND idade > 30
-        db.<nome_collection>.find({ sexo:{$eq: 'F'}, idade:{$gt: 30} }).pretty()
+        db.<nome_collection>.find(
+        {
+            sexo: {$eq: 'F'},
+            idade: {$gt: 30}
+        })
     
     - nome = 'allan' OR nome = 'bile'
         db.<nome_collection>.find(
-            {
-                $or:[
-                    { nome: {$eq: 'allan'}},
-                    { nome: {$eq: 'bile'}}
-                ]
-            })
+        {
+            $or:[
+                { nome: {$eq: 'allan'}},
+                { nome: {$eq: 'bile'}}
+            ]
+        })
