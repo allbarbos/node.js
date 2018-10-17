@@ -1,0 +1,18 @@
+version: '3'
+services:
+  mmorpg:
+    build: .
+    ports:
+     - "3000:3000"
+    volumes:
+     - ./src:/work
+    command: sh -c 'npm install && npm run server'
+  #   links:
+  #     - db
+
+  # db:
+  #   image: mysql:5.6    
+  #   environment:
+  #     MYSQL_ROOT_PASSWORD: root
+  #   ports:
+  #     - "3306:3306"
