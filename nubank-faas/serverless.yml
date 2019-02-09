@@ -1,0 +1,22 @@
+service: nubank-faas
+
+provider:
+  name: google
+  runtime: nodejs
+  project: utilidades  
+  credentials: ~/.gcloud/keyfile.json
+
+plugins:
+  - serverless-google-cloudfunctions
+
+package:
+  exclude:
+    - node_modules/**
+    - .gitignore
+    - .git/**
+
+functions:
+  orderExpenses:
+    handler: orderExpenses
+    events:
+      - http: path
