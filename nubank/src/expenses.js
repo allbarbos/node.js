@@ -30,8 +30,17 @@ const sumExpenseByTypes = function (expenses) {
     return result;
 }
 
+const writeFile = function (expenses) {
+    let text = '';
+    expenses.map(obj => text += `${ obj.title || '' } - ${ obj.amount || 0 }\n`);
 
+    fs.writeFile('ordenada.txt', text, (err) => {
+        if (err) throw err;
+        console.log('## Arquivo ordenado com sucesso!');
+    });
+}
 module.exports = {
     getExpenses,
-    sumExpenseByTypes
+    sumExpenseByTypes,
+    writeFile
 };
