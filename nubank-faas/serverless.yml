@@ -16,7 +16,7 @@ package:
     - .git/**
 
 functions:
-  orderExpenses:
-    handler: orderExpenses
+  expenses:
+    handler: expenses
     events:
       - http: path

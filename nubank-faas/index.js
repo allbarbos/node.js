@@ -1,29 +1,16 @@
 'use strict';
 
-const { getExpenses } = require('./expenses');
+const { getExpenses, orderExpenses } = require('./modules/expenses');
 
-exports.orderExpenses = (req, res) => {
+exports.expenses = (req, res) => {
+  const contentType = req.get('content-type');
+  const body = req.body.toString();
+
   try {
-    const contentType = req.get('content-type');
-  
-    if( 'text/plain' != contentType ) {
-      throw 'Content-type error'
-    }
-  
-    const body = req.body.toString();
-
+    if( 'text/plain' != contentType ) throw 'Content-type error'
+    
     const expenses =  getExpenses(body.toString());
-
-    const ordered = expenses.sort(function (a, b) {
-        if (a.title > b.title) {
-          return 1;
-        }
-        if (a.title < b.title) {
-          return -1;
-        }
-        return 0;
-    });
-
+    const ordered = orderExpenses(expenses);
     res.status(200).json(ordered);
     
   } catch (error) {
