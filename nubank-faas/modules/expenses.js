@@ -1,3 +1,5 @@
+'use strict';
+
 const orderExpenses = function (expenses) {
     let ordered = {};
     Object.keys(expenses).sort().forEach(function(key) {
