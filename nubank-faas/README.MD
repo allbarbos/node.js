@@ -1,5 +1,10 @@
 # Commands
 
+### Deploy local
+```
+functions deploy expenses --trigger-http
+```
+
 ### cURL
 ```
 curl -X POST \
@@ -11,9 +16,4 @@ curl -X POST \
 2019-01-02,Restaurante,XPTO,15.3
 2019-01-02,Vestuário,ABC,63
 2019-01-02,Supermercado,WYZ,5.9'
-```
-
-### Deploy local
-```
-functions deploy expenses --trigger-http
 ```
