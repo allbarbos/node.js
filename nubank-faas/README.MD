@@ -13,7 +13,7 @@ curl -X POST \
 2019-01-02,Supermercado,WYZ,5.9'
 ```
 
-### Run local
+### Deploy local
 ```
 functions deploy expenses --trigger-http
 ```
