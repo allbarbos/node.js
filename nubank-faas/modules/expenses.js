@@ -17,11 +17,11 @@ const getExpenses = function (data) {
     csv.forEach((line, idx) => {
         if(idx == 0) return;
 
-        let fields = line.split(',');
-        let [date, category, title, amount] = fields;
+        const fields = line.split(',');
+        const [date, category, title, amount] = fields;
 
-        let key = title.replace(/"/g, '');
-        let value = (parseFloat(expenses[key]) || 0 ) + parseFloat(amount);
+        const key = title.replace(/"/g, '');
+        const value = (parseFloat(expenses[key]) || 0 ) + parseFloat(amount);
 
         expenses[key] = Math.round(value * 100) / 100;
     });
