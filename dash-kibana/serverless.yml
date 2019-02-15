@@ -16,12 +16,12 @@ package:
     - .git/**
 
 functions:
-  kibana-dashboard:
+  dashboard:
     handler: dashboard
     events:
       - http: path
 
-  kibana-visualizes:
+  visualizes:
     handler: visualizes
     events:
       - http: path
