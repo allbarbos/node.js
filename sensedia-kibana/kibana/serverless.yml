@@ -16,7 +16,12 @@ package:
     - .git/**
 
 functions:
-  sensedia-kibana:
-    handler: templateKibana
+  kibana-dashboard:
+    handler: dashboard
+    events:
+      - http: path
+
+  kibana-visualizes:
+    handler: visualizes
     events:
       - http: path
