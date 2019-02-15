@@ -1,5 +1,8 @@
 # Commands
 
+### GCP Functions Emulator
+npm install -g @google-cloud/functions-emulator
+
 ### Deploy local
 ```
 functions deploy <NAME FUNCTION> --trigger-http
