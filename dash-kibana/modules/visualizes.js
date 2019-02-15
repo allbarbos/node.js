@@ -1,3 +1,5 @@
+'use strict';
+
 const visualization = [
     {
       "_id": "Total-Calls",
