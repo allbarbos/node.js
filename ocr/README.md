@@ -1,1 +1,1 @@
-
+# OCR com AWS Rekognition
