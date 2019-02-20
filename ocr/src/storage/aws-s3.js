@@ -1,4 +1,6 @@
-const save = function(AWS, id, base64, data) {
+const AWS = require('../services/aws');
+
+const save = function(id, base64, data) {
     return new Promise((resolve, reject) => {
         const type = base64.split(';')[0].split('/')[1];
         const params = {

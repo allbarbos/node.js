@@ -1,4 +1,6 @@
-const ocr = function (AWS, id, uriRecibo, base64Data) {
+const AWS = require('../services/aws');
+
+const ocr = function (id, uriRecibo, base64Data) {
     return new Promise((resolve, reject) => {
         const rekognition = new AWS.Rekognition( { region: process.env.AWS_REKOGNITION_REGION } );
         

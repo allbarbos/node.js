@@ -1,4 +1,4 @@
-const AWS = require('../services/aws');
+//const AWS = require('../services/aws');
 const storage = require('../storage/aws-s3');
 const rekognition = require('../services/rekognition');
 
@@ -7,7 +7,7 @@ exports.post = async (req, res, next) => {
     const base64Data = new Buffer.from(base64, 'base64');
     const id = Date.now();
     
-    storage.save(AWS, id, base64, base64Data)
+    storage.save(id, base64, base64Data)
         .then(uriRecibo => rekognition.ocr(AWS, id, uriRecibo, base64Data))
         .then(recibo => res.send(recibo))
         .catch( error => res.send(error));
