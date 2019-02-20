@@ -1,4 +1,3 @@
-//const AWS = require('../services/aws');
 const storage = require('../storage/aws-s3');
 const rekognition = require('../services/rekognition');
 
