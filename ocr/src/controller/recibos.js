@@ -9,5 +9,5 @@ exports.post = async (req, res, next) => {
     storage.save(id, base64, base64Data)
         .then(uri => rekognition.ocr(AWS, id, uri, base64Data))
         .then(recibo => res.send(recibo))
-        .catch( error => res.send(error));
+        .catch(error => res.send(error));
 };
