@@ -6,9 +6,10 @@
   "scripts": {
     "start": "node src/server.js",
     "dev": "nodemon src/server.js --ignore __tests__",
-    "test": "jest"
+    "test": "NODE_ENV=test jest"
   },
   "dependencies": {
+    "dotenv": "^6.2.0",
     "express": "^4.16.4",
     "pg": "^7.8.1",
     "sequelize": "^4.42.0"
@@ -16,6 +17,7 @@
   "devDependencies": {
     "jest": "^24.1.0",
     "nodemon": "^1.18.10",
-    "sequelize-cli": "^5.4.0"
+    "sequelize-cli": "^5.4.0",
+    "sqlite3": "^4.0.6"
   }
 }
