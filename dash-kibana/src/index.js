@@ -1,13 +1,13 @@
 'use strict';
 
-const dashboardTemplate = require('./modules/dashboard');
+const dashboardGetTemplate = require('./modules/dashboard');
 const visualizesTemplate = require('./modules/visualizes');
 
 exports.dashboard = (req, res) => {
   try {
     if(!req.query.nomeApi) throw 'Nome da API inválido'    
 
-    const template = dashboardTemplate(req.query.nomeApi);
+    const template = dashboardGetTemplate(req.query.nomeApi);
     const obj = JSON.parse(template);
     
     res.status(200).json(obj);

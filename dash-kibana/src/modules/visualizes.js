@@ -1,5 +1,5 @@
 'use strict';
-const applyTemplate = require('./apply-template');
+const replaceFieldsTemplate = require('./apply-template');
 
 const visualization = [
   {
@@ -144,4 +144,4 @@ const visualization = [
   }
 ];
 
-module.exports = applyTemplate(visualization, '${idIndex}');
+module.exports = replaceFieldsTemplate(visualization, '${idIndex}');
