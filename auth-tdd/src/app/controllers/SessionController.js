@@ -1,4 +1,4 @@
-const { User } = require('../../src/app/models');
+const { User } = require('../models');
 
 class SessionController {
     async store(req, res){
