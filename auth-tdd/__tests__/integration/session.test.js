@@ -20,14 +20,29 @@ describe('Authentication', () => {
         expect(response.status).toBe(200);
     });    
 
-    it('should not authenticate with valid credentials', async () => {
+    it('should user not found', async () => {
+        const user = await factory.create('User')
+
         const response = await request(app)
             .post('/sessions')
             .send({
                 email: 'teste@teste.com',
-                password: `${Date.now}`
+                password: '123456'
             });
-        
+
+        expect(response.status).toBe(401);
+    });
+
+    it('should not authenticate with valid credentials', async () => {
+        const user = await factory.create('User', { email: 'teste@teste.com' })
+
+        const response = await request(app)
+            .post('/sessions')
+            .send({
+                email: 'teste@teste.com',
+                password: '123456'
+            });
+        console.log(response.body)
         expect(response.status).toBe(401);
     });
 
