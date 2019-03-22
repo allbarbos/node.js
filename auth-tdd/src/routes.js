@@ -7,8 +7,6 @@ routes.post('/sessions', SessionController.store);
 
 routes.use(auth);
 
-routes.get('/dashboard', (req, res) => {
-    return res.status(200).send();
-});
+routes.get('/dashboard', (req, res) => res.status(200).send());
 
 module.exports = routes;
